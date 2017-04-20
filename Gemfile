@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
@@ -33,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'action_access'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -43,7 +45,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'simplecov', :require => false
   gem 'rspec-rails', '~> 3.5'
-  gem 'action_access'
 end
 
 group :development do
@@ -61,7 +62,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'chromedriver-helper'
-  gem 'simplecov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,22 @@
+div {
+  border-style: solid;
+}
+.panel-title {
+  text-align: center;
+}
+
+.col-xs-1{
+  min-width: 25px;
+}
+
+.column {
+  border-style: none;
+}
+
+form {
+  text-align: center;
+}
+
+.form-group {
+  text-align: left;
+}

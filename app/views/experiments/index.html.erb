@@ -1,0 +1,23 @@
+<div class='row'>
+  <div class='col-xs-1 column'> </div>
+  <div class='col-xs-10 column'><h1>Autogenics Experiments List</h1></div>
+  <div class='col-xs-1 column'> </div>
+</div>
+<div class='row'>
+  <div class='col-xs-1 column'> </div>
+  <div class='col-xs-10 column'><%= button_to "Post New Experiment", new_experiment_path, method: :get %></div>
+  <div class='col-xs-1 column'> </div>
+</div>
+<div class='row'>
+  <div class='col-xs-1 column'> </div>
+  <div class='col-xs-10 column experiments-list'>
+    <ul>
+      <% @experiments.each do |experiment| %>
+        <li class='title'>
+          <%= link_to "#{experiment.title}", experiment_path(experiment) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class='col-xs-1 column'> </div>
+</div>
