@@ -8,4 +8,12 @@ class User < ApplicationRecord
   def clearance_levels
     role.name
   end
+
+  def access_token=(given_token)
+    p access_token
+  end
+
+  def access_token
+
+  end
 end

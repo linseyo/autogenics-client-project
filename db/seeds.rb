@@ -18,4 +18,5 @@ exp = Experiment.create!( title: Faker::Lorem.sentence,
                     acknowledgments: Faker::Lorem.paragraph,
                     references: Faker::Lorem.paragraph,
                     author_contributions: Faker::Lorem.paragraph,
-                    author_id: josh.id)
+                    author_id: josh.id,
+                    staff_size: 5)

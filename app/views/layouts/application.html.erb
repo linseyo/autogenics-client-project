@@ -14,8 +14,10 @@
     <!-- LOCAL CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
     <!-- BOOTSTRAP Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -24,6 +26,17 @@
   </head>
 
   <body>
+    <nav>
+        <h1>Autogenics</h1>
+        <%= link_to "Home", root_path %> |
+        <% if session[:user_id] %>
+        <% @user = User.find(session[:user_id]) %>
+          <%= link_to "Log out", users_logout_path, method: :delete %>
+        <% else %>
+          <%= link_to "Log in", users_login_path %> |
+          <%= link_to "Register", new_user_path %>
+        <% end %>
+  </nav>
     <%= yield %>
   </body>
 </html>
