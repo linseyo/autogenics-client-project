@@ -10,10 +10,22 @@ RSpec.describe IndexController, type: :controller do
     it 'routes to index#index' do
       expect(get: root_url).to route_to(controller: "index", action: "index")
     end
+  end
 
-    it 'renders the :index template' do
-      get :index
-      expect(response).to render_template("index")
+  describe 'ajax rootpath' do
+    context 'while user is logged in' do
+      it 'renders the experiments index page' do
+        session[:user_id] = 1
+        get :index, xhr: true
+        expect(response).to render_template("experiments/_index")
+      end
+    end
+
+    context 'while user is not logged in' do
+      it 'renders the login form sessions_index page' do
+        get :index, xhr: true 
+        expect(response).to render_template("sessions/_index")
+      end
     end
   end
 end

@@ -23,6 +23,8 @@
 
     <!-- LOCAL JS-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>var signedIn = <%== signed_in?.to_json  %></script>
+
   </head>
 
   <body>
