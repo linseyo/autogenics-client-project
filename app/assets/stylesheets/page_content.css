@@ -1,0 +1,44 @@
+div.col-xs-10 {
+  border-radius: 15px;
+}
+
+div.panel {
+  background-color: #b28dc7;
+}
+
+div.panel-heading {
+  background-color: #6e2687;
+  color: white;
+  text-align: center;
+}
+
+div.panel-body {
+background-color: #ccc47f;
+}
+
+div.sub-content h3 {
+  background-color: #b28dc7;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+
+.col-xs-1{
+  min-width: 25px;
+}
+
+.column {
+  border-style: none;
+}
+
+form {
+  text-align: center;
+}
+
+.form-group {
+  text-align: left;
+}
+
+li {
+  list-style: none;
+}

@@ -14,16 +14,41 @@
     <!-- LOCAL CSS -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
     <!-- BOOTSTRAP Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- LOCAL JS-->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>var signedIn = <%== signed_in?.to_json  %></script>
+
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="navbar-header container-fluid" id="navfluid">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to "AUTOGENICS", root_path, :class => 'navbar-brand' %>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+            <% if session[:user_id] %>
+            <li><% @user = User.find(session[:user_id]) %>
+              <%= link_to "Log out", users_logout_path, method: :delete, :class => 'nav navbar-nav', "data-toggle" => "collapse", "data-target" => ".navbar-collapse.in" %></li>
+            <% else %>
+              <li><%= link_to "Log in", users_login_path, :class => 'nav navbar-nav', "data-toggle" => "collapse", "data-target" => ".navbar-collapse.in" %></li>
+              <li><%= link_to "Register", new_user_path, :class => 'nav navbar-nav', "data-toggle" => "collapse", "data-target" => ".navbar-collapse.in" %></li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

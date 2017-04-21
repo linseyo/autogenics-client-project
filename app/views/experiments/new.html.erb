@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <div class="card">
+      <div class="card-block text-center">
+        <div class="panel-heading">
+          <h1 class="panel-header">Post a New Experiment </h1>
+        </div>
+          <div class="panel-body">
+
+            <%= form_for @experiment do |f| %>
+              <p>
+                <%= f.label :title %><br>
+                <%= f.text_field :title %>
+              </p>
+              <p>
+                <%= f.label :staff_size %><br>
+                <%= f.number_field :staff_size, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :abstract %><br>
+                <%= f.text_area :abstract, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :introduction %><br>
+                <%= f.text_area :introduction, size: "35x10"  %>
+              </p>
+                <%= f.label :materials %><br>
+                <%= f.text_area :materials, size: "35x10"  %>
+              <p>
+                <%= f.label :results %><br>
+                <%= f.text_area :results, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :discussion %><br>
+                <%= f.text_area :discussion, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :conclusion %><br>
+                <%= f.text_area :conclusion, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :supporting_info %><br>
+                <%= f.text_area :supporting_info, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :acknowledgments %><br>
+                <%= f.text_area :acknowledgments, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :author_contributions %><br>
+                <%= f.text_area :author_contributions, size: "35x10"  %>
+              </p>
+              <p>
+                <%= f.label :references %><br>
+                <%= f.text_area :references, size: "35x10"  %>
+              </p>
+
+              <%= f.submit 'Post Experiment', :class => 'btn btn-default'  %>
+            <% end %>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-1"></div>
+</div>

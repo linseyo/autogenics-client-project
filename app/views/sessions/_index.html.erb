@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <div id="main-content text-center">
+      <!-- <div class="col-xs-4 text-center"> -->
+      <div class="card-block text-center">
+      <div class="panel-heading">
+        <h3 class="panel-header">Login</h3>
+        </div>
+      <div class="panel-body">
+        <p>
+          <%= button_to "Faculty", new_session_path, method: :get, :class => "btn btn-default btn-block", remote: true %>
+        </p>
+        <p>
+          <%= button_to "Staff", new_session_path, method: :get, :class => "btn btn-default btn-block", remote: true %>
+        </p>
+        <p>
+          <%= button_to "Register", new_user_path, method: :get, :class => "btn btn-default btn-block", :id => "button-to-registration", remote: true %>
+        </p>
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  <div class="col-xs-1"></div>
+</div>

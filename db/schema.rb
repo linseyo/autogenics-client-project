@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420040929) do
+ActiveRecord::Schema.define(version: 20170420175626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.string   "faculty"
+    t.string   "staff"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "experiments", force: :cascade do |t|
     t.string   "title",                null: false
@@ -30,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170420040929) do
     t.text     "acknowledgments"
     t.text     "references"
     t.text     "author_contributions"
+    t.integer  "staff_size"
   end
 
   create_table "experiments_staff", force: :cascade do |t|

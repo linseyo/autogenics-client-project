@@ -5,7 +5,7 @@ describe 'Experiment' do
     it 'displays an experiments title' do
       faculty = Role.create!(name: "Faculty")
       josh = User.create!(name: "Josh", email: "email@email.com", password: "password", role_id: faculty.id)
-       exp = Experiment.create!( title: Faker::Lorem.sentence,
+      exp = Experiment.create!( title: Faker::Lorem.sentence,
                     abstract: Faker::Lorem.paragraph,
                     introduction: Faker::Lorem.paragraph,
                     materials: Faker::Lorem.paragraph,
