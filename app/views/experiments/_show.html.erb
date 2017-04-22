@@ -51,15 +51,24 @@
     <div class="sub-content" id="staff-content">
         <h3> Current Experiment Staff </h3>
         <ul>
-          <li>Lead Researcher: NAME HERE</li>
-          <li>STAFF</li>
-          <li>STAFF</li>
-          <li>STAFF</li>
+          <li>Lead Researcher: <%= experiment.author.name %></li>
+            <% if experiment.staff.empty? %>
+              <li id="no-staff">This experiment currently has no staff signed up!</li>
+            <% else %>
+              <% experiment.staff.each do |staff| %>
+                <li>Lab Staff: <%= staff.name %></li>
+              <% end %>
+            <% end %>
+            <li class="list-staff"></li>
         </ul>
-          <%= form_for experiment_path(experiment) do |f| %>
-          <%= f.submit 'Sign Up For Experiment!', :class => 'btn btn-default' %>
-          <% end %>
+        <div class="sign-up-button">
+          <% if @user.role.name == "Staff" && @experiment.staff.include?(@user) == false && @experiment.staff.length < 6 %>
+            <%= form_for experiment, url: {controller: 'experiments', action: "update"}, remote: true do |f| %>
+            <%= f.submit 'Sign Up For Experiment!', :class => 'btn btn-default' %>
+            <% end %>
           <br>
+          <% end %>
+        </div>
     </div>
   </div>
 

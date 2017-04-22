@@ -5,6 +5,7 @@ class ExperimentsController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
     @experiment = Experiment.find(params[:id])
     respond_to do |format|
       format.js
@@ -34,6 +35,18 @@ class ExperimentsController < ApplicationController
                                       author_id: session[:user_id],
                                       staff_size: experiment_params[:staff_size])
     respond_to do |format|
+      format.js {}
+    end
+  end
+
+  def update
+    @lab_staff = User.find(session[:user_id])
+    @experiment = Experiment.find(params[:id])
+    if @experiment.staff.length < 6
+      @experiment.staff << @lab_staff
+    end
+    respond_to do |format|
+      format.html {}
       format.js {}
     end
   end
