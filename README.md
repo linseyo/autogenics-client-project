@@ -20,6 +20,7 @@ Project time-frame 5 days
 - Agile Workflow
 - Ruby On Rails
 - RSPEC testing & Capybara
+- Circle CI
 - ActiveRecord, PostgreSQL
 - HTML5, CSS3
 - Javascript, AJAX
